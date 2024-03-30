@@ -24,7 +24,7 @@ class TradingStrategy(Strategy):
         # Retrieve the closing price history for $PHO
         closing_prices = [i[self.ticker]["close"] for i in data["ohlcv"]]
         # Calculate the 20-day SMA for $PHO
-        sma_20 = SMA(self.ticker, data["ohlcv"], length=20)
+        sma_20 = SMA(self.ticker, data["ohlcv"], length=15)
 
         if len(closing_prices) < 20 or sma_20 is None:
             # Not enough data to make a decision
