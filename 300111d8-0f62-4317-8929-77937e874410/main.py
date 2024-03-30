@@ -35,7 +35,8 @@ class TradingStrategy(Strategy):
 
         # Calculate the drop percentage from the 20-day SMA
         drop_pct = ((sma_20_latest - latest_close) / sma_20_latest) * 100
-        log(f, str(drop_pct))
+        drop_string = str(drop_pct)
+        log(f""+drop_string)
 
         # Check if $PHO has dropped more than 15% from its 20-day SMA
         if drop_pct > 10:
