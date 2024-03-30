@@ -36,9 +36,9 @@ class TradingStrategy(Strategy):
                 # Check if the momentum is positive; if so, allocate funds to that asset
                 # We will allocate equally among assets with positive momentum
                 # If negative momentum, we allocate 0 indicating we do not want to buy/increase.
-                if last_momentum > 2:
+                if last_momentum > 0:
                     allocation_dict[ticker] = 1 / len(self.tickers)
-                else:
+                else if last_momentum < 2:
                     allocation_dict[ticker] = 0
                 
             else:
