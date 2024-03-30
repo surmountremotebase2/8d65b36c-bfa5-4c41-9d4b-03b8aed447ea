@@ -27,7 +27,7 @@ class TradingStrategy(Strategy):
         for ticker in self.tickers:
             ticker_momentum = Momentum(ticker, data["ohlcv"], self.momentum_length)
             
-            log(f""+ticker_momentum[-1])
+            log(f""+str(ticker_momentum[-1]))
 
             # Ensure that we have the momentum data
             if ticker_momentum and len(ticker_momentum) > 0:
