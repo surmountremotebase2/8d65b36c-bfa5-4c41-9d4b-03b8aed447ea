@@ -43,6 +43,7 @@ class TradingStrategy(Strategy):
             # Purchase (or hold) a 100% allocation in $PHO
             self.is_holding = True
             self.purchase_price = latest_close
+            log(f"Purchased at " + str(latest_close))
             return TargetAllocation({self.ticker: 1})
         
         # If we are holding $PHO, check if it has gained 20% from our purchase
