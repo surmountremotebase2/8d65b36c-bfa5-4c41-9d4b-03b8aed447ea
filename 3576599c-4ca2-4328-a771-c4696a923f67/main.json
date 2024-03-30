@@ -1,1 +1,1 @@
-{}
+{"interval": "1day", "assets": ["PHO"], "strategy": [{"type": "IF", "conditions": [{"type": "BINARY", "first": {"name": "SMA", "args": {"length": "50", "ticker": "PHO"}, "advanced": {}}, "second": {"name": "SMA", "args": {"length": "40", "ticker": "PHO"}}, "comp": ">", "operator": ""}], "if_action": {"type": "ACTION", "steps": [{"action": "allocation", "asset": "PHO", "amount": 100}]}, "else_action": {"type": "ACTION", "steps": [{"action": "allocation", "asset": "PHO", "amount": "0"}]}}]}
