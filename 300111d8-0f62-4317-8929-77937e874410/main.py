@@ -50,7 +50,7 @@ class TradingStrategy(Strategy):
             gain_pct = ((latest_close - purchase_price) / purchase_price) * 100
 
             # If $PHO has gained 20% or more, sell back to 0
-            if gain_pct >= 20:
+            if gain_pct >= 5:
                 self.is_holding = False
                 return TargetAllocation({self.ticker: 0})
 
