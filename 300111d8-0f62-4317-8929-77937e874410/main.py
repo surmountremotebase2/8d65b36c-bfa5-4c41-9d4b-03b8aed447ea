@@ -39,13 +39,14 @@ class TradingStrategy(Strategy):
         # log(f""+drop_string)
 
         # Check if $PHO has dropped more than 15% from its 20-day SMA
-        if not self.is_holding and drop_pct < -5:
+        if not self.is_holding and drop_pct > 5:
             # Purchase (or hold) a 100% allocation in $PHO
             self.is_holding = True
             self.purchase_price = latest_close
             log(f"Purchased at " + str(latest_close))
             return TargetAllocation({self.ticker: 1})
-        
+
+        '''
         # If we are holding $PHO, check if it has gained 20% from our purchase
         if self.is_holding:
             # Assume 'purchase_price' is tracked externally or through strategy state management
@@ -59,6 +60,7 @@ class TradingStrategy(Strategy):
             if gain_pct >= 20:
                 self.is_holding = False
                 return TargetAllocation({self.ticker: 0})
+        '''
 
         # Default action if no conditions are met or if holding without hitting the target gain
         return TargetAllocation({})
