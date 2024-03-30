@@ -37,9 +37,10 @@ class TradingStrategy(Strategy):
         drop_pct = ((sma_20_latest - latest_close) / sma_20_latest) * 100
 
         # Check if $PHO has dropped more than 15% from its 20-day SMA
-        if drop_pct > 15:
+        if drop_pct > 10:
             # Purchase (or hold) a 100% allocation in $PHO
             self.is_holding = True
+            self.purchase_price = latest_close
             return TargetAllocation({self.ticker: 1})
         
         # If we are holding $PHO, check if it has gained 20% from our purchase
