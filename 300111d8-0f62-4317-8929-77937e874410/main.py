@@ -52,6 +52,9 @@ class TradingStrategy(Strategy):
             purchase_price = self.purchase_price  # This line is illustrative; actual implementation may vary
             gain_pct = ((latest_close - purchase_price) / purchase_price) * 100
 
+            gain_str = str(gain_pct)
+            log(f""+gain_str)
+
             # If $PHO has gained 20% or more, sell back to 0
             if gain_pct >= 20:
                 self.is_holding = False
