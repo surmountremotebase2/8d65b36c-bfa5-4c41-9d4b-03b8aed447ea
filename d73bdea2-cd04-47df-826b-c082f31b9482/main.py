@@ -19,11 +19,11 @@ class TradingStrategy(Strategy):
         current_allocation = data["holdings"].get(self.ticker, 0)
 
         # Calculating the 20-day SMA for PHO
-        sma_current = SMA(self.ticker, data["ohlcv"], 20)[-1]
-        sma_previous = SMA(self.ticker, data["ohlcv"], 20)[-20]
+        sma_current = SMA(self.ticker, data["ohlcv"], 15)[-1]
+        sma_previous = SMA(self.ticker, data["ohlcv"], 15)[-15]
 
         # Check if the current SMA has dropped more than 7% compared to the previous day
-        if sma_current < sma_previous * 0.9:
+        if sma_current < sma_previous * 0.92:
             # log("SMA dropped more than 10%, increasing PHO stake by 1%.")
             # Increase the stake in PHO by 10% more of the portfolio, constrained to not exceed 100%
             new_allocation = min(1, current_allocation + 0.1)
