@@ -39,7 +39,7 @@ class TradingStrategy(Strategy):
         # log(f""+drop_string)
 
         # Check if $PHO has dropped more than 15% from its 20-day SMA
-        if drop_pct > -5:
+        if drop_pct < -5:
             # Purchase (or hold) a 100% allocation in $PHO
             self.is_holding = True
             self.purchase_price = latest_close
