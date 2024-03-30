@@ -38,7 +38,7 @@ class TradingStrategy(Strategy):
                 # If negative momentum, we allocate 0 indicating we do not want to buy/increase.
                 if last_momentum > 0:
                     allocation_dict[ticker] = 1 / len(self.tickers)
-                else if last_momentum < 2:
+                elif last_momentum < 2:
                     allocation_dict[ticker] = 0
                 
             else:
