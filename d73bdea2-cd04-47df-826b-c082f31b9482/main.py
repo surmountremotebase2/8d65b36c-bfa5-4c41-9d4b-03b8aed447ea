@@ -22,7 +22,7 @@ class TradingStrategy(Strategy):
         sma_current = SMA(self.ticker, data["ohlcv"], 20)[-1]
         sma_previous = SMA(self.ticker, data["ohlcv"], 20)[-20]
 
-        log(f"SMA is " + sma_current)
+        log(f"SMA is " + str(sma_current))
 
         # Check if the current SMA has dropped more than 7% compared to the previous day
         if sma_current < sma_previous * 0.99:
