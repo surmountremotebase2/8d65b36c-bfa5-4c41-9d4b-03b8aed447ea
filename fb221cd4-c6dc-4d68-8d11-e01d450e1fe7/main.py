@@ -6,7 +6,7 @@ class TradingStrategy(Strategy):
     
     def __init__(self):
         # Initializing with the tickers we are interested in
-        self.tickers = ["PHO", "AMD"]
+        self.tickers = ["SPY"]
         self.momentum_length = 14  # Length period for Momentum calculation
 
     @property
